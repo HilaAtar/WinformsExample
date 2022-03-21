@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace WinformsExample
 {
-    public partial class Form1 : Form
+    public partial class StartScreen : Form
     {
         TreeNode mainNode;
-        public Form1()
+        public StartScreen()
         {
             InitializeComponent();
             mainNode = new TreeNode();
-            Thread thr = new Thread(new ThreadStart(this.Sever));
+            Thread thr = new Thread(new ThreadStart(this.Server));
             thr.Start();
 
             numA.Text = "0";
@@ -48,7 +48,7 @@ namespace WinformsExample
 
             return response;
         }
-        public void Sever()
+        public void Server()
         {
             TcpListener server = new TcpListener(IPAddress.Any, 9999);
             server.Start();
